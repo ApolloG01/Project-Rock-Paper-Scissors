@@ -26,8 +26,8 @@ const getHumanChoice = function () {
 let humanScore = 0;
 let computerScore = 0;
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+let humanSelection = 0;
+let computerSelection = 0;
 
 const playGame = function () {
   const playRound = function (humanChoice, cpuChoice) {
@@ -49,8 +49,10 @@ const playGame = function () {
     } else if (humanChoice === "scissors" && cpuChoice === "paper") {
       humanScore++;
       return `You win! ${humanChoice} beats ${cpuChoice}`;
-    } else {
+    } else if (humanChoice === computerScore) {
       return `It's a Draw! Go at it again`;
+    } else {
+      `Something's not right...check you spelling please, and make sure you've used letters`;
     }
   };
 
@@ -59,8 +61,17 @@ const playGame = function () {
   console.log(humanScore);
   console.log(computerScore);
 };
-playGame();
 
-console.log(
-  `Human Selection: ${humanSelection} | Computer Selection: ${computerSelection} `
-);
+for (i = 0; i < 5; i++) {
+  humanSelection = getHumanChoice();
+  computerSelection = getComputerChoice();
+  playGame();
+}
+
+if (humanScore > computerScore) {
+  console.log(`Congratulations, You've won! ${humanScore}:${computerScore}`);
+} else if (humanScore < computerScore) {
+  console.log(`You've lost ${humanScore} : ${computerScore} ☹️...Shame on You`);
+} else {
+  console.log(`It ended in a Draw, refesh the page and play again!`);
+}
