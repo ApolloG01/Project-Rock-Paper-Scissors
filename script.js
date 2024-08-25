@@ -52,7 +52,7 @@ const playGame = function () {
     } else if (humanChoice === computerScore) {
       return `It's a Draw! Go at it again`;
     } else {
-      `Something's not right...check you spelling please, and make sure you've used letters`;
+      return `Something's not right...check you spelling please, and make sure you've used letters`;
     }
   };
 
