@@ -49,7 +49,7 @@ const playGame = function () {
     } else if (humanChoice === "scissors" && cpuChoice === "paper") {
       humanScore++;
       return `You win! ${humanChoice} beats ${cpuChoice}`;
-    } else if (humanChoice === computerScore) {
+    } else if (humanChoice === cpuChoice) {
       return `It's a Draw! Go at it again`;
     } else {
       return `Something's not right...check you spelling please, and make sure you've used letters`;
